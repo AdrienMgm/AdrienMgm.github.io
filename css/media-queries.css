@@ -1,0 +1,168 @@
+@media screen and (max-width: 960px) {
+  #content {
+    width: 90%;
+  }
+  #content > section {
+    padding-top: 50px;
+    margin-top: 1em;
+  }
+  #portrait{
+    display: none;
+  }
+
+  header #infos{
+    display: inline-block;
+    width: 100%;
+    margin: 0;
+  }
+
+  nav ul {
+    width: 90%;
+    font-size: 0.7em;
+  }
+  nav ul li {
+    margin: 1%;
+    width: 30%;
+  }
+
+  #student {
+  	margin-top: 0.2em;
+  }
+
+  #today-box {
+  	margin-top: 1.5em;
+  }
+  header h2 {
+  	margin-bottom: 0.5em;
+  }
+  header figure img {
+  	width: 2em;
+  }
+  .document-resume > img {
+    padding-top: 1em;
+    width: 30%;
+  }
+  #skills ul.skills-list li.skill-element {
+    width: 100%;
+  }
+
+  #work h2.title {
+  	margin-top: 1.5em;
+    text-align: center;
+  }
+  #work #projects .project .littleDesc {display: none;}
+  #work #projects .project .tags {display: none;}
+  #projectDetails .left {clear: both; width: 100%;}
+  #projectDetails .right {clear: both; width: 100%;}
+  #filter {
+  	font-size: 0.75em;
+  }
+  #filter .left {
+  	display: none;
+  }
+  #filter .tag {
+  	padding: 0.5em 0.5em;
+  }
+  #filter ul {
+  	text-align: center;
+  }
+
+  #hobbies .like p {
+  	font-size: 0.4em;
+  }
+
+  #contact .address {
+  	font-size: 0.6em;
+  }
+  #contact div p, #contact div address {
+    font-size: 0.6em;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  #work #projects .project {
+    max-width: 90%;
+    height: auto;
+  }
+  #work #projects .small {
+    width: 100%;
+  }
+  #work #projects .medium {
+    width: 100%;
+  }
+  #work #projects .large {
+    width: 100%;
+  }
+
+  #hobbies .like {
+    width: 90%;
+    margin-bottom: 1em;
+  }
+
+  #work #projects .project .subtitle {
+    font-size: 0.5em;
+  }
+  #contact > div {
+      width: 100%;
+  }
+  #backToTop {display: none;visibility: hidden;}
+}
+
+@media screen and (max-width: 500px) {
+  #skills ul.skills-list li.skill-element {
+    border-bottom: solid 1px #f2f2f2;
+    border-top: solid 1px #f2f2f2;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+  #skills ul.skills-list li.skill-element h4 {
+    text-align: center;
+  }
+  #skills ul.skills-list li.skill-element div {
+    margin-bottom: 3em;
+    margin-top: -5%;
+  }
+  #skills ul.skills-list li.skill-element p {
+    top: 80%;
+  }
+  #skills ul.skills-list li.skill-element canvas {
+    width: 5em;
+    height: 5em;
+  }
+  #skills ul.skills-list li.skill-element progress {
+    height: 2.75em;
+    border: 0.25em solid #F2F2F2;
+  }
+  footer {
+    font-size: .4em;
+  }
+}
+
+@media screen and (max-width: 400px) {
+  #content > section {
+    margin-top: .5em;
+  }
+  #contact {
+    padding-bottom: 1em;
+  }
+}
+
+@media screen and (min-width: 600px) and (max-width: 720px) {
+  
+  #work #projects .project .subtitle {
+    font-size: 0.4em;
+  }
+  #work #projects .project .details p {
+    font-size: 0.4em;
+  }
+  #work #projects .project .link {
+    font-size: 0.8em;
+  }
+  #work #projects .project .back .link {
+    display: none;
+  }
+  #work #projects .project .back .tag {
+    font-size: 0.35em;
+    padding: 0px 3px;
+  }
+}

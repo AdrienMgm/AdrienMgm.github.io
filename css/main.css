@@ -1,0 +1,818 @@
+/* ////////////////////////////////// */
+/* ///////// Author's style ///////// */
+/* ////////////////////////////////// */
+
+/* ////////////////////////////////// */
+/* ////////////// Utils ///////////// */
+/* ////////////////////////////////// */
+.left { float: left; }
+.right { float: right; }
+.center { text-align: center; }
+.clear { clear: both; }
+.inline-block { display: inline-block; }
+.block { display: block; }
+.inline { display: inline; }
+
+/* ///////////////////////////////// */
+/* //////////// General //////////// */
+/* ///////////////////////////////// */
+
+html {
+    margin: 0;
+    padding: 0;
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #34495e;
+}
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+}
+address {
+    font-style: normal;
+}
+strong {
+    color: #f1c40f;
+}
+ul, li {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+p{
+    margin: 0;
+    padding: 0;
+}
+a {
+    text-decoration: none;
+    color: #f1c40f;
+}
+
+/* ///////////////////////////////// */
+/* ////////////// Main ///////////// */
+/* ///////////////////////////////// */
+#main {
+    width: 100%;
+    margin: 0;
+    font-family: "RonniaHeavyRegular", Helvetica, Arial, Sans-serif;
+    font-weight: inherit;
+    text-transform: uppercase;
+    color: #ecf0f1;
+    overflow: hidden;
+}
+#content {
+    width: 960px;
+    margin: 0 auto;
+    font-size: 2em;
+}
+#content > section {
+    padding-top: 50px;
+    margin-top: 1em;
+}
+#content > section > h2 {
+    margin-top: 0;
+}
+.tag {
+    display: inline-block;
+    color: #34495e;
+    font-size: .45em;
+    margin: .1em;
+    padding: .25em .5em;
+    background: #F1C40F;
+}
+.load {
+    font-family: RonniaRegular;
+    color: #FFF;
+    font-size: 0.5em;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* ///////////////////////////////// */
+/* /////////// Navigation ////////// */
+/* ///////////////////////////////// */
+nav {
+    position: fixed;
+    -webkit-transform: translateZ(0)
+    top: 0;
+    width: 100%;
+    background-color: #ecf0f1;
+    z-index: 1000;
+    text-align: center;
+}
+nav ul {
+    width: 720px;
+    margin: 0 auto;
+    display: inline-block;
+
+}
+nav ul li {
+    display: inline-block;
+    width: 16%;
+}
+nav ul li a {
+    display: block;
+    padding: .5em 0;
+    color: #333;
+    font-size: 1.2em;
+    text-decoration: none;
+}
+nav ul li a:hover {
+    color: #AAA;
+}
+nav ul .current a {
+    color: #f1c40f;
+}
+
+/* ///////////////////////////////// */
+/* ////////// Home/Header ////////// */
+/* ///////////////////////////////// */
+header {
+    padding-top: 75px;
+}
+header #portrait {
+    width: 40%;
+    display: block;
+    margin: 0 auto;
+}
+header #infos {
+    display: inline-block;
+    overflow: hidden;
+    width: 63%;
+    margin-left: 2%;
+}
+header h1#name {
+    display: block;
+    width: 100%;
+    margin: 0 auto;
+    font-size: 2.5em;
+    color: #ecf0f1;
+    background-color: #f1c40f;
+    text-align: center;
+    margin-bottom: .3em;
+}
+header #workOn{
+    max-height: 230px;
+}
+header #workOn p{
+    font-size: .5em;
+    background-color: #f1c40f;
+    color: #34495e;
+}
+header #workOn img{
+    display: inline-block;
+    width: 100%;
+}
+header #aim{
+    width: 100%;
+}
+header #aim > p{
+    font-size: 1.45em;
+}
+
+/* ///////////////////////////////// */
+/* ///////// About/Student ///////// */
+/* ///////////////////////////////// */
+#about #Iam {
+    font-size: 2em;
+    line-height: 1em;
+}
+#about h2#engineer {
+    font-size: 2.5em;
+    line-height: 1em;
+    color: #f1c40f;
+}
+#student{
+    margin: 1em 0;
+}
+#student #student-at {
+    font-size: 1.6em;
+}
+#student a#imac > h2{
+    position: relative;
+    font-size: 4em;
+    z-index: 99;
+    line-height: .75em;
+}
+#student a#imac{
+    display: block;
+}
+#student a#imac:hover{
+    -webkit-animation-name: bounce;
+    animation-name: bounce;
+}
+#student #engineering-school {
+    font-size: 1.2em;
+}
+#student .left {
+    width: 45%;
+    margin-left: 5%;
+}
+#student .right {
+    width: 50%;
+}
+#student #accolade {
+    display: block;
+    float: left;
+    font-size: 6.5em;
+    width: 15%;
+    font-family: sans-serif;
+    line-height: .79em;
+}
+#student #web-mobile {
+    font-size: 2.15em;
+}
+#student #videogames {
+    font-size: 1.95em;
+}
+#student #image {
+    font-size: 1.6em;
+}
+#student #management-marketing {
+    font-size: 0.98em;
+}
+#student #cinema-communication {
+    font-size: 1.04em;
+}
+#student ul {
+    display: block;
+    float: left;
+    width: 85%;
+}
+#student ul li {
+    display: inline;
+    text-align: center;
+}
+#student ul #web-mobile {
+    line-height: .8em;
+}
+#student ul #videogames {
+    line-height: .8em;
+}
+#student ul #image {
+    line-height: .8em;
+}
+#student ul #management-marketing {
+    line-height: .8em;
+}
+#student ul #cinema-communication {
+    line-height: .8em;
+}
+#about .get-resume {
+    font-size: 2em;
+    margin-bottom: 1em;
+}
+#about .get-resume .document-resume {
+    margin-left: .5em;
+}
+#about .get-resume .document-resume > img{
+    vertical-align: middle;
+}
+
+/* ///////////////////////////////// */
+/* ///////////// Skills //////////// */
+/* ///////////////////////////////// */
+#now-box .left {
+    width: 38.5%;
+}
+#now-box .right {
+    width: 61.5%;
+}
+#now-box #what-can-i-do {
+    font-size: 1.6em;
+}
+#now-box #for-you {
+    font-size: 1.6em;
+    line-height: .75em;
+}
+#now-box #now {
+    width: 100%;
+    font-size: 4em;
+    line-height: 0.85em;
+}
+#skills ul.skills-list li.skill-element{
+    display: inline-block;
+    vertical-align: top;
+    position: relative;
+    width: 46%;
+    margin: 1%;
+    padding: .5%;
+    font-size: .3em;
+}
+#skills ul.skills-list li.skill-element .skill-bar:hover {
+    background-color: #DDD;
+}
+#skills ul.skills-list li.skill-element h4 {
+    font-size: 2em;
+    margin: 0 0 2% 0;
+}
+#skills ul.skills-list li.skill-element div {
+    position: relative;
+    width: 100%;
+    height: 6em;
+    margin-bottom: 1em;
+}
+#skills ul.skills-list li.skill-element canvas {
+    position: absolute;
+    width: 6em;
+    height: 6em;
+    top: 0;
+    left: 0;
+    border-radius: 100%;
+    border: .25em solid #34495e;
+    background-size: 100% 100%;
+}
+#skills ul.skills-list li.skill-element progress[value="0"] ~ canvas {
+    background-image: url("../img/starter_L.jpg");
+} 
+#skills ul.skills-list li.skill-element progress[value^="1"] ~ canvas {
+    background-image: url("../img/starter_L.jpg");
+}
+#skills ul.skills-list li.skill-element progress[value^="2"] ~ canvas {
+    background-image: url("../img/beginner_L.jpg");
+}
+#skills ul.skills-list li.skill-element progress[value^="3"] ~ canvas {
+    background-image: url("../img/intermediate_L.jpg");
+}
+#skills ul.skills-list li.skill-element progress[value^="4"] ~ canvas {
+    background-image: url("../img/advanced_L.jpg");
+}
+#skills ul.skills-list li.skill-element progress[value^="5"] ~ canvas {
+    background-image: url("../img/ninja.jpg");
+}
+#skills ul.skills-list li.skill-element p {
+    position: absolute;
+    top: 0;
+    left: 5em;
+    text-transform: none;
+    font-family: RonniaRegular;
+    font-size: 1.5em;
+}
+#skills ul.skills-list li.skill-element progress {
+    position: absolute;
+    width: 90%;
+    height: 35px; /* Safari/Chrome, other WebKit */
+    -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+    box-sizing: border-box;         /* Opera/IE 8+ */
+    color: #F1C40F;
+    top: 30%;
+    left: 10%;
+    border: 4px solid #F2F2F2;
+    border-radius: 10px;
+    background-color: #F2F2F2;
+}
+#skills ul.skills-list li.skill-element progress::-webkit-progress-bar {
+    border-radius: 10px;
+    background-color: #F2F2F2;
+}
+#skills ul.skills-list li.skill-element progress::-webkit-progress-value {
+    border-radius: 10px;
+    background-color: #F1C40F;
+}
+#skills ul.skills-list li.skill-element progress::-moz-progress-bar {
+    border-radius: 10px;
+    background-color: #F1C40F;
+}
+#skills ul.skills-list li.skill-element ul.skills-details {
+}
+#skills ul.skills-list li.skill-element ul.skills-details li {
+    display: inline-block;
+    color: #34495e;
+    font-size: 1.25em;
+    margin: .1em;
+    padding: .25em .5em;
+    background: #F1C40F;
+}
+#skills .skill {
+    font-family: RonniaExtraboldRegular;
+    margin-top: 1em;
+}
+#skills .skill h3 {
+    font-size: 1.25em;
+    display: inline-block;
+    margin : 0;
+}
+#skills .skill .favourite {
+    font-size: .7em;
+    margin-top: .85em;
+}
+
+/* ///////////////////////////////// */
+/* ///////////// Work ////////////// */
+/* ///////////////////////////////// */
+#work #learn {
+    font-size: 1.5em;
+}
+#work #have-a-look {
+    font-size: 1.9em;
+    width: 60%;
+}
+#work #my-work {
+    width: 40%;
+    font-size: 3.5em;
+    line-height: .75em;
+}
+#work #filter {
+    margin-bottom: 1em;
+}
+#work #filter .tag {
+    display : inline-block;
+    font-size: .6em;
+    background-color: #f1c40f;
+    padding: .1em .5em;
+    margin: .2em .1em;
+    cursor: pointer;
+}
+#work #filter .tag.active {
+    color: #f1c40f;
+    background-color: #F2F2F2;
+}
+#filter .tag:hover {
+    color: #F2F2F2;
+}
+#work #filter .left {
+    margin: 0;
+    margin-top: .2em;
+    margin-right: .5em;
+}
+#work #projects .project {
+    display: inline-block;
+}
+#work #projects .small {
+    width: 33.333%;
+}
+#work #projects .medium {
+    width: 50%;
+}
+#work #projects .large {
+    width: 100%;
+}
+#work #projects .project .wrap {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+#work #projects .project > img {
+    display: block;
+    width: 100%;
+}
+#work #projects .project .shadow:before {
+    -o-box-shadow: inset 0px 0px 4em 0px rgba(0, 0, 0, .8);
+    box-shadow: inset 0px 0px 4em 0px rgba(0, 0, 0, .8);
+    display:block;
+    content:'';
+    position:absolute;
+    width:100%;
+    height:100%;
+}
+#work #projects .project .info {
+    display: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 96%;
+    height: 98%;
+    padding: 1% 2%;
+    background-color: rgba(5, 5, 5, 0.8);
+    z-index: 10;
+}
+#work #projects .project h2 {
+    max-height: 10%;
+    padding: 1%;
+    margin: 0;
+    font-size: 80%;
+    text-align: center;
+}
+#work #projects .project .littleDesc {
+    max-height: 40%;
+    font-size: .5em;
+    font-family: "RonniaLightRegular";
+    text-indent: 2%;
+    text-transform: none;
+    padding: 0 1%;
+    margin-bottom: 2%;
+}
+#work #projects .project .tags {
+    max-height: 35%;
+    padding: 0 2%;
+    line-height: .5em;
+}
+#work #projects .project .tags .tag {
+    display: inline-block;
+    padding: 3px 8px;
+    background-color: #f1c40f;
+    font-size: .38em;
+    margin-bottom: 3px;
+}
+#work #projects .project .more {
+    font-size: 0.5em;
+    font-family: RonniaLightRegular;
+    font-weight: bold;
+    position: absolute;
+    bottom: 10px;
+    right: 15px;
+}
+#work #projects .project .more:hover {
+    color: white;
+}
+#work #projects .project .details {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 90%;
+    padding: 5% 0;
+    background-color: rgba(5, 5, 5, 0.8);
+    z-index: 10;
+}
+#work #projects .project .details p {
+    font-size: .5em;
+    font-family: "DroidSerifRegular", Helvetica, Arial, Sans-serif;
+    padding: 0% 5%;
+}
+#work #projects .project .more, #work #projects .project .less {
+    text-decoration: none;
+    color: #f1c40f;
+    text-align: right;
+    font-size: .7em;
+    position: absolute;
+    bottom: .5em;
+    right: .5em;
+    cursor: pointer;
+    z-index: 2000;
+}
+#work #projects .project .more.first {
+    font-size: 2em;
+    bottom: 0;
+    right: .1em;
+    line-height: 1em;
+}
+#work #projects .project .more:hover, #work #projects .project .less:hover {
+    color: #F2F2F2;
+}
+#work #projects .project .link a {
+    color: #f1c40f;
+    text-decoration: none;
+    font-size: .6em;
+    padding: 0 5%;
+}
+#work #projects .project .link a:hover{
+    color: #F2F2F2
+}
+
+#projectDetails #up {
+    background: #34495e;
+    padding: 0 1em 1em 1em;
+}
+#projectDetails #down {
+    bottom: 0;
+    background: #ecf0f1;
+    padding: 1em 1em 1em 1em;
+}
+#projectDetails .left {
+    width: 48%;
+}
+#projectDetails .right {
+    width: 48%;
+    padding: 1%;
+}
+#projectDetails .center {
+    margin: 50px auto;
+    width: 50%;
+}
+#projectDetails .desc {
+    padding: 1em;
+    color: #ecf0f1;
+}
+#projectDetails h2{
+    padding: .5em;
+    font-size: 2.5em;
+    text-align: center;
+    color: #f1c40f;
+}
+#projectDetails #up p{
+    margin: 0;
+    padding: 1em 0;
+}
+#projectDetails #up video{
+    background: #ecf0f1;
+}
+#projectDetails .tags .tag {
+    font-size: 1em;
+    font-weight: bold;
+}
+#projectDetails #down p{
+    font-size: 1.5em;
+    font-weight: bold;
+    padding: .5em 0;
+    color: #34495E;
+}
+#projectDetails #down ul {
+    display: inline-block;
+}
+#projectDetails #down ul.short li {
+    display: inline-block;
+    font-size: 1em;
+    margin: .25em .25em;
+    padding: .5em;
+    background: #34495E;
+}
+#projectDetails #down ul li a {
+    color: #f1c40f;
+    font-weight: bold;
+}
+
+/* ///////////////////////////////// */
+/* //////////// Hobbies //////////// */
+/* ///////////////////////////////// */
+#hobbies {
+    position: relative;
+}
+#hobbies h2#like {
+    font-size: 3em;
+    text-align: center;
+    margin-bottom: .5em;
+}
+#hobbies .like {
+    width: 41%;
+    display: inline-block;
+    text-align: center;
+    margin-bottom: 2em;
+    padding: 0 4%;
+    vertical-align: top;
+}
+#hobbies .like i {
+    font-size: 5em;
+}
+#hobbies .like h3 {
+    font-size: 1em;
+    margin-bottom: 0;
+}
+#hobbies .like a {
+    color: #f1c40f;
+    text-decoration: none;
+}
+#hobbies .like a:hover {
+    color: #f2f2f2;
+}
+#hobbies .like p {
+    width: 100%;
+    margin-top: 0;
+    text-align: left;
+    text-transform: none;
+    font-size: .8em;
+    font-family: RonniaRegular;
+}
+
+/* ///////////////////////////////// */
+/* //////////// Contact //////////// */
+/* ///////////////////////////////// */
+#contact {}
+#contact #see {
+    font-size: 3em;
+    margin-bottom: .5em;
+}
+#contact div {
+    font-size: .8em;
+    text-align: center;
+}
+#contact a {
+    text-decoration: none;
+    color: #f1c40f;
+}
+#contact a:hover {
+    color: #f2f2f2;
+}
+#contact i {
+    display: inline;
+    color: #f1c40f;
+    text-align: center;
+    font-size: 4em;
+    margin-right: 0;
+    margin-bottom: .4em;
+}
+#contact > div {
+    position: relative;
+    margin-bottom: 1em;
+    width: 50%;
+}
+#contact > div > *:first-child {
+    display: block;
+}
+#contact > div img{
+    height: 3em;
+}
+
+/* ///////////////////////////////// */
+/* ///////////// Footer //////////// */
+/* ///////////////////////////////// */
+footer {
+    font-size: .5em;
+    font-family: "RonniaRegular", Helvetica, Arial, Sans-serif;
+}
+
+/* ///////////////////////////////// */
+/* ////////////// Other //////////// */
+/* ///////////////////////////////// */
+#backToTop {
+    display: none;
+    padding: 20px 0 0 0;
+    font-family: "RonniaRegular", Helvetica, Arial, Sans-serif;
+    background: #f1c40f;
+    opacity: .8;
+    width: 60px;
+    height: 40px;
+    font-size: 10px;
+    text-align: center;
+    color: #201a26;
+    position: fixed;
+    z-index: 999;
+    bottom: 0px;
+    right: 0px;
+    cursor: pointer;
+    -o-border-radius: 3px 0 0 0;
+    border-radius: 3px 0 0 0;
+}
+
+/* ///////////////////////////////// */
+/* //////////// Isotope //////////// */
+/* ///////////////////////////////// */
+/**** Isotope Filtering ****/
+.isotope-item {
+  z-index: 2;
+}
+.isotope-hidden.isotope-item {
+  pointer-events: none;
+  z-index: 1;
+}
+
+/**** Isotope CSS3 transitions ****/
+.isotope,
+.isotope .isotope-item {
+  -webkit-transition-duration: .8s;
+          transition-duration: .8s;
+}
+.isotope {
+  -webkit-transition-property: height, width;
+          transition-property: height, width;
+}
+.isotope .isotope-item {
+  -webkit-transition-property: -webkit-transform, opacity;
+          transition-property:         transform, opacity;
+}
+
+/**** disabling Isotope CSS3 transitions ****/
+.isotope.no-transition,
+.isotope.no-transition .isotope-item,
+.isotope .isotope-item.no-transition {
+  -webkit-transition-duration: 0s;
+          transition-duration: 0s;
+}
+
+/* ///////////////////////////////// */
+/* ///////////// Helpers /////////// */
+/* ///////////////////////////////// */
+.ir {
+    background-color: transparent;
+    border: 0;
+    overflow: hidden;
+    *text-indent: -9999px;
+}
+.ir:before {
+    content: "";
+    display: block;
+    width: 0;
+    height: 150%;
+}
+.hidden {
+    display: none !important;
+    visibility: hidden;
+}
+.visuallyhidden {
+    border: 0;
+    clip: rect(0 0 0 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+.visuallyhidden.focusable:active,
+.visuallyhidden.focusable:focus {
+    clip: auto;
+    height: auto;
+    margin: 0;
+    overflow: visible;
+    position: static;
+    width: auto;
+}
+.invisible {visibility: hidden;}
+.clearfix:before,
+.clearfix:after {
+    content: " ";
+    display: table;
+}
+.clearfix:after {clear: both;}
+.clearfix {*zoom: 1;}
