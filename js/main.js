@@ -327,7 +327,7 @@ $(document).ready(function() {
 	$("#accolade").fitText(.038);
 	$("#web-mobile").fitText(.65);
 	$("#videogames").fitText(.7);
-	$("#image").fitText(.85);
+	$("#image").fitText(.89);
 	$("#management-marketing").fitText(1.44);
 	$("#cinema-communication").fitText(1.35);
 
@@ -340,7 +340,7 @@ $(document).ready(function() {
 	$("#now").fitText(.45);
 
 	$("#learn").fitText(2);
-	$("#have-a-look").fitText(.95);
+	$("#have-a-look").fitText(1.05);
 	$("#my-work").fitText(.4);
 
 	$("#like").fitText(1);
