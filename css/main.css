@@ -442,9 +442,13 @@ header #aim > p{
 }
 #work #projects .medium {
     width: 50%;
+    height: 303px;
+    overflow: hidden;
 }
 #work #projects .large {
     width: 100%;
+    height: 422px;
+    overflow: hidden;
 }
 #work #projects .project .wrap {
     width: 100%;

@@ -1,0 +1,200 @@
+{
+	"projects":[
+		// {
+		// 	"id":1,
+		// 	"name":"Check It",
+		// 	"categorie":["application"],
+		// 	"last":"1 week",
+		// 	"size":"small",
+		// 	"images":[
+		// 		"img/projects/miniCheckIt.jpg",
+		// 		"img/projects/accueilCheckIt.jpg"
+		// 		],
+		// 	"tags":[
+		// 		"Objective-C"
+		// 	],
+		// 	"desc":"Check It is a mobile application developed in DUT (MMI/SRC) during my specialty course mobile development. The aim of this application is to create lists of things that we can then check. This can be anythings as it is browsable. Check It serves daily for multiple uses such as shopping or tasks."
+		// },
+		// {
+		// 	"id":2,
+		// 	"name":"Time Shop",
+		// 	"categorie":["website"],
+		// 	"online":"http://timeshop.alwaysdata.net",
+		// 	"last":"2 week",
+		// 	"size":"small",
+		// 	"images":[
+		// 		"img/projects/timeShop1.jpg",
+		// 		"img/projects/TimeShop2.jpg"
+		// 		],
+		// 	"tags":[
+		// 		"PHP5",
+		// 		"HTML5",
+		// 		"CSS3",
+		// 		"Twig",
+		// 		"search engine",
+		// 		"mysql",
+		// 		"Javascript",
+		// 		"Jquery",
+		// 		"Photoshop",
+		// 		"Illustrator"
+		// 	],
+		// 	"desc":"This french e-commerce was developed during engineering PHP courses at IMAC school. The principle is to sell services. This means people can come on our website, register and create their availability to do something. The services are stored in categories like 'Do-it-yourself' or 'cleaning'. We have (re)learned sql request, templating with Twig, front-end/back-end with administration area, search engine and relational/conceptual data model on BDD."
+		// },
+		{
+			"id":3,
+			"name":"Imac Tower Defense",
+			"categorie":["videogame"],
+			"last":"1 month",
+			"size":"small",
+			"video":"//player.vimeo.com/video/88632272",
+			"images":[
+				"img/projects/miniImacTowerDefense.jpg",
+				"img/projects/ImacTowerDefense1.jpg",
+				"img/projects/ImacTowerDefense2.jpg"
+				],
+			"tags":[
+				"C",
+				"OpenGL2",
+				"GUI (AntTweakBar)"
+			],
+			"desc":"Imac tower defense is a 2D game where you have to defend yourself against several monsters. The more you kill monsters the more you earn money to buy more powerful towers. This game was developed in C with a library GUI named AntTweakBar. I tried to get closer the MVC design pattern to this game by taking into account the constraints of C language. In this game, we have many objects, attributes and behavior which are managed with maths in 2D for the monsters and the towers."
+		},
+		{
+			"id":4,
+			"name":"I-ve",
+			"categorie":["website"],
+			"online":"http://adrienmgm.fr/ive",
+			"last":"1 year",
+			"size":"medium",
+			"video":"//player.vimeo.com/video/40177652",
+			"images":[
+				"img/projects/ive.png",
+				"img/projects/ive_tree1.jpg",
+				"img/projects/ive_tree2.jpg"
+				],
+			"tags":[
+				"PHP5",
+				"xHTML",
+				"XML",
+				"CSS",
+				"Javascript",
+				"Photoshop",
+				"Illustrator"
+			],
+			"desc":"This social network was developed in DUT (MMI/SRC) for my final project study. The proposed community site will aim to allow for more curious, sharing advice and information on a particular area of ​​interest. It will be self-managed by its members and will propose the creation of pages with many and varied interests. Everyone's curiosity will drive this company of shared knowledge. It will bring users to discover what they do not know yet, and accelerate the exchange and discovery."
+		},
+		{
+			"id":5,
+			"name":"La Fille",
+			"categorie":["design"],
+			"last":"6 months",
+			"size":"medium",
+			"video":"//player.vimeo.com/video/88150884",
+			"images":[
+				"img/projects/LaFille.jpg"
+				],
+			"tags":[
+				"After Effects",
+				"Premiere Pro",
+				"Illustrator",
+				"Photoshop"
+			],
+			"desc":"Creation and staging of an Opera pop from the comic strip 'La FIlle' of Christophe Blain. I essentially work on video compositing and video mapping. You can see the show from Friday, March 14 at 'La Ferme du buisson'"
+		},
+		{
+			"id":6,
+			"name":"Imakart",
+			"categorie":["videogame"],
+			"last":"3 weeks",
+			"size":"large",
+			"video":"//player.vimeo.com/video/90073443",
+			"images":[
+				"img/projects/miniImakart.jpg",
+				"img/projects/imakart02.png",
+				"img/projects/imakart03.png",
+				"img/projects/imakart04.png",
+				"img/projects/imakart05.png"
+				],
+			"tags":[
+				"C++",
+				"OpenGL3",
+				"GLSL",
+				"Bullet",
+				"GameDesign"
+			],
+			"desc":"It's a car racing game (a king of MarioKart) where you have to beat the other cars controlled by an artificial intelligence that I realiazed. You have the choice between 3 ambiances like country, or mountain. For the moment you can choose 4 cars. This game was developed by a team of 6 people in 3 weeks. I have also implemented the physics interactions between every component using the physic library Bullet. The rendering engine has been done with OpenGL 3. The main difficulty we faced was to create a spherical world. Why a sperical world ? Because we thought it was cool and it was a challenge for us."
+		},
+		{
+			"id":7,
+			"name":"Tetraword",
+			"categorie":["videogame", "application"],
+			"last":"1 month",
+			"size":"medium",
+			"images":[
+				"img/projects/miniTetraword.jpg",
+				"img/projects/accueilTetraword.jpg",
+				"img/projects/jeuTetraword.jpg",
+				"img/projects/anagrammeTetraword.jpg"
+				],
+			"tags":[
+				"JAVA",
+				"Android",
+				"Mobile"
+			],
+			"desc":"Tetraword is a game based on famous Tetris. It is made with a simple game loop and the android framework. The goal of this game is to delete the lines like in the classic tetris but with words combinations."
+		},
+		{
+			"id":8,
+			"name":"Django",
+			"categorie":["videogame", "application"],
+			"last":"more than 1 year",
+			"size":"medium",
+			"images":[
+				"img/projects/django01.png"
+				],
+			"tags":[
+				"C",
+				"Uengine",
+				"GameDesign",
+				"Mobile"
+			],
+			"desc":"Django (Endless runner and Shoot’em up). This game was named best mobile game in Game Connection America 2014 : http://goo.gl/UTFvTK. I worked on the user interface and the gameplay. I created a popups system and realised animations with particles. I also worked on the weapons and the bullets."
+		},
+		{
+			"id":9,
+			"name":"Wake up",
+			"categorie":["videogame"],
+			"last":"in progress",
+			"size":"medium",
+			"images":[
+				"img/projects/wakeup01.png",
+				"img/projects/wakeup02.png",
+				"img/projects/wakeup03.png",
+				"img/projects/wakeup04.png"
+				],
+			"tags":[
+				"C++",
+				"Unreal Engine",
+				"GameDesign"
+			],
+			"desc":"Side Scrolling 3D game."
+		}
+		// {
+		// 	"id":10,
+		// 	"name":"LA",
+		// 	"categorie":["application", "website"],
+		// 	"last":"in progress",
+		// 	"size":"medium",
+		// 	"images":[
+		// 		"img/projects/miniLA.jpg",
+		// 		"img/projects/LA1.jpg"
+		// 		],
+		// 	"tags":[
+		// 		"Mobile",
+		// 		"Android",
+		// 		"iOs"
+		// 	],
+		// 	"desc":"Social application for sharing content with location."
+		// }
+	]
+}
