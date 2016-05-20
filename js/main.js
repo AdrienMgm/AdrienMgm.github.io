@@ -25,123 +25,241 @@ function isMobile(){
 
 function loadProjects(){
 	// load Projets
+	var dfd = $.Deferred();
+
 	$.ajax({
 		url: "projects/projects.json",
 		dataType: 'json',
 		success: function(data) {
 			$("#projects").empty();
-	        $.each(data.projects.reverse(), function(i, element){
+			$(".load").hide();
+	        $.each(data.projects, function(key, element){
 	        	//console.log(element);
-	        	var project = '<div id="project_'+element.id+'" class="project ';
+	        	var project = '<div id="'+key+'" class="project ';
 	        	$.each(element.categorie, function(i, categ){
 	        		project += categ+' '; 
 	        	});
-	        	project += element.size+'">';
-				project += '<a class="info" name="'+element.name+'" href="#">';
+	        	project += element.size+'" style="background-image: url('+element.images[0]+');">';
+				project += '<a class="info" name="'+element.name+'" href="#/project/'+key+'">';
 				project += '<h2>'+element.name+'</h2>';
-				project += '<div class="littleDesc">'+element.desc+'</div>';
-				project += '<ul class="tags">';
-				$.each(element.tags, function(i, tag){
-					project += '<li class="tag">'+tag+'</li>';
-				});
-				project += '</ul>';
-				project += '<span class="more">Click to see more</span>';
+				// project += '<div class="littleDesc">'+element.desc+'</div>';
+				// project += '<ul class="tags">';
+				// $.each(element.tags, function(i, tag){
+				// 	project += '<li class="tag">'+tag+'</li>';
+				// });
+				// project += '</ul>';
+				// project += '<span class="more">Click to see more</span>';
 				project += '</a>';
-				project += '<img src="'+element.images[0]+'" alt="'+element.categorie+' '+element.name+'" />';
+				// project += '<img src="'+element.images[0]+'" alt="'+element.categorie+' '+element.name+'" />';
 				project += '</div>';
-	    		$("#projects").isotope('insert', $(project));
+	    		$("#projects").prepend(project);
 	        });
-	        $("#projects").isotope('reLayout');
+
+	        dfd.resolve(data);
 	    },
 		error: function(request, textStatus, errorThrown) {
-			alert(textStatus);
-		},
-		complete: function(request, textStatus) {
-			$("#projects").isotope('reLayout');
+			dfd.reject(textStatus + ' : ' + errorThrown);
 		}
 	});
+
+	return dfd.promise();
 }
 
-$(window).load(function(){
-	$(".load").hide();
-	$("#projects").isotope('reLayout');
-})
+function routesHTML5(data){
+	// Verifications
+	var hash = window.location.hash;
+	if(hash.indexOf("#/project/") > -1) {
+		displayProject(hash.substr(10), data);
+	}
+	else {
+		window.location.hash = '/home';
+	}
+	lastHash = hash;
+
+	if ("onhashchange" in window) { // event supported?
+	    window.onhashchange = function () {
+	    	// Verifications
+			var hash = window.location.hash;
+			if(hash.indexOf("#/project") > -1) {
+				displayProject(hash.substr(10), data);
+			}
+			else {
+				displayHome();
+			}
+			lastHash = hash;
+	    }
+	}
+	else { // event not supported:
+	    var storedHash = window.location.hash;
+	    window.setInterval(function () {
+	        if (window.location.hash != storedHash) {
+	            storedHash = window.location.hash;
+	            // Verifications
+				var hash = window.location.hash;
+				if(hash.indexOf("#/project") > -1) {
+					displayProject(hash.substr(10), data);
+				}
+				else {
+					displayHome();
+				}
+				lastHash = hash;
+	        }
+	    }, 100);
+	}
+}
+
+function displayHome() {
+	if(!$("#content #home").length) {
+		var lastIdProject = lastHash.replace('#/project/', '#');
+		$("#content").empty().removeClass("content--project");
+		$("#main > nav").show();
+		$("#content").append(home);
+
+		var el = $(lastIdProject);
+		var elOffset = el.offset().top;
+		var elHeight = el.height();
+		var windowHeight = $(window).height();
+		var offset;
+
+		if(elHeight < windowHeight) {
+			offset = elOffset - ((windowHeight / 2) - (elHeight / 2));
+		}
+		else {
+			offset = elOffset;
+		}
+		$(window).scrollTop(offset);
+	}
+}
+
+function displayProject(hash, data){	
+	// Verifications
+	var projectName = hash;
+	var project = data.projects[projectName];
+	if(!project) {
+		return;
+	}
+
+	// Create Page
+	var projContent = '';
+	projContent += '<div id="project__'+ projectName +'" class="project">';
+		projContent += '<ul id="fullpage">';
+			if(project.video){
+				projContent += '<li id="project__video">';
+				
+					projContent += '<div id="video__container">';
+					projContent += '<video id="video" autoplay loop id="video-background" muted><source src="'+project.video+'" type="video/mp4"></video>';
+					projContent += '</div>';
+					
+					projContent += '<h1>'+project.name+'</h1>';
+
+					projContent += '<div class="desc">';
+						projContent += project.desc;
+						projContent += '<ul class="tags">';
+						$.each(project.tags, function(i, tag){
+							projContent += '<li class="tag">'+tag+'</li>';
+						});
+						projContent += '</ul>';
+					projContent += '</div>';
+				
+				projContent += '</li>';
+			}
+			for(var i = 0; i < project.images.length; i++) {
+				projContent += '<li id="img_'+ projectName + '_' + i +'" class="prject__image section" style="background-image: url('+ project.images[i] +');">';
+				if(i == 0 && !project.video) {
+					projContent += '<h1>'+project.name+'</h1>';
+
+					projContent += '<div class="desc">';
+					projContent += project.desc;
+					projContent += '<ul class="tags">';
+					$.each(project.tags, function(i, tag){
+						projContent += '<li class="tag">'+tag+'</li>';
+					});
+					projContent += '</ul>';
+				projContent += '</div>';
+				}
+				projContent += '</li>';
+			}
+		projContent += '</ul>';
+
+		projContent += '<nav>';
+			projContent += '<ul>';
+				projContent += '<li>';
+					projContent += '<a class="exit">◄</a>';
+				projContent += '</li>';
+			projContent += '</ul>';
+		projContent += '</nav>';
+	projContent += '</div>';
+
+	// Display Page & Animate it
+	var el = $("#"+projectName);
+	var elOffset = el.offset().top;
+	var elHeight = el.height();
+	var windowHeight = $(window).height();
+	var offset;
+
+	if(elHeight < windowHeight) {
+		offset = elOffset - ((windowHeight / 2) - (elHeight / 2));
+	}
+	else {
+		offset = elOffset;
+	}
+
+	// $('html, body').animate(
+	// {
+	// 	scrollTop: offset
+	// },
+	// 2000,
+	// "easeOutCubic",
+	// function(){
+		$(window).scrollTop(offset);
+		$("#main > nav").fadeOut("fast");
+		$("#content").html(projContent).promise().done(function(){
+			$(window).scrollTop(0);
+			$("#content").addClass("content--project");
+			// Check video size
+			var video = document.getElementById('video');
+			if(video){
+				video.addEventListener('loadedmetadata', function() {
+			        video.width = this.videoWidth;
+			        video.height = this.videoHeight;
+
+					var windowRatio = window.innerWidth / window.innerHeight;
+					var videoRatio = video.width / video.height;
+
+					if(videoRatio > 1) {
+						$("video").css("width", "100%");
+			        }
+			        else {
+						$("video").css("height", "100%");
+			        }
+			        $("#video__container").prepend('<video id="blur-video" autoplay loop id="video-background" muted><source src="'+project.video+'" type="video/mp4"></video>');
+				});
+			}
+			$(".exit").click(function(){
+				pushHash("/home");
+			});
+		});
+	// });
+}
+
+var home;
+var lastHash;
+
+function pushHash(hash) {
+	lastHash = window.location.hash;
+	window.location.hash = hash;
+}
 
 $(document).ready(function() {
-	//////////////////////////
-	/* Masonry/Isotope grid */
-	//////////////////////////
-	$("#projects").isotope({
-		itemSelector : '.project',
-		resizable: false, // disable normal resizing
-		// set columnWidth to a percentage of container width
-		masonry: {
-			columnWidth: $("#projects").width() / 6
-		}
-	});
-	// Recalculate on resize
-	$(window).smartresize(function(){
-	  $("#projects").isotope('reLayout');
-	});
-
-	$('#filter .tag').on('click', function() {
-		$('#filter .tag').removeClass('active');
-		$(this).addClass('active');
-
-		var id = $(this).attr('id');
-		if(id == 'all') id = 'project';
-		$('#projects').isotope({ filter: '.'+id });
-	});
-
 	///////////////////////
 	/* Load project.json */
 	///////////////////////
-	loadProjects();
-	$("#projects").isotope('reLayout');
-	
-	var windowWidth = $(window).width();
-	var windowHeight= $(window).height();
-
-	/////////////
-	/* General */
-	/////////////
-
-	// if(windowWidth <= 600-22) 	$('#work #projects .project').css('height', 0.9*$('#content').width());
-	// else 						$('#work #projects .project').css('height', 0.3*$('#content').width());
-
-	// // /* Resize */
-	// $(window).resize(function() {
-	// 	var windowWidth = $(window).width();
-	//   	if(windowWidth <= 600-22)	$('#work #projects .project').css('height', 0.9*$('#content').width());
-	// 	else						$('#work #projects .project').css('height', 0.3*$('#content').width());
-	// });
-
-	//////////////
-	/* ColorBox */
-	//////////////
-
-	//Configure colorbox call back to resize with custom dimensions
-	$.colorbox.settings.onLoad = function() {
-		colorboxResize();
-	}
-	//Customize colorbox dimensions
-	var colorboxResize = function(resize) {
-		var width;
-		(windowWidth > 960) ? width = "80%" : width = "100%";
-		var height = "100%";
-		$.colorbox.settings.height = height;
-		$.colorbox.settings.width = width;
-		//if window is resized while lightbox open
-		if(resize) {
-			$.colorbox.resize({
-				'height': height,
-				'width': width
-			});
-		}
-	}
-	//In case of window being resized
-	$(window).resize(function() {
-		colorboxResize(true);
+	loadProjects().done(function(projects){
+		home = $("#content").html();
+		////////////////////
+		/* routage system */
+		////////////////////
+		routesHTML5(projects);
 	});
 
 	////////////////
@@ -176,7 +294,7 @@ $(document).ready(function() {
 			$("#backToTop").fadeOut(250);
 		}
 	});
-	 $('#backToTop').click(function(event) {
+	$('#backToTop').click(function(event) {
         $('html, body').animate({scrollTop : 0}, 'slow');
         event.preventDefault();
     });
@@ -184,133 +302,105 @@ $(document).ready(function() {
 	//////////////////////////////
 	/* Events (Click, hover...) */
 	//////////////////////////////
-	$(document).on("mouseenter", ".info", function(){
-		$(this).find('.littleDesc').dotdotdot({
-			watch: "window"
-		});
-	});
-
-	$(document).on("click", ".project a.info, .shortcuts", function(event){
-		var current = $(this).attr("name");
-		$.getJSON("projects/projects.json", function(data) {
-			popup = '<div id="projectDetails">';
-	        $.each(data.projects, function(i, element){
-	        	if( element.name == current){
-	        		popup += '<div id="up">';
-			        	popup += '<h2>'+element.name+'</h2>';
-						popup += '<div class="right">';
-							popup += '<p class="desc">'+element.desc+'</p>';
-							if(element.online){
-								popup += '<a class="online" target="_blank" href="'+element.online+'">See Online</a>';
-							}
-							popup += '<ul class="tags">';
-							$.each(element.tags, function(i, tag){
-								popup += '<li class="tag">'+tag+'</li>';
-							});
-							popup += '</ul>';
-						popup += '</div>';
-						popup += '<div class="left">';
-							popup += '<ul class="bxslider">';
-					        	if(element.video){
-					        		popup += '<li>';
-									popup += '<iframe src="'+element.video+'" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
-									popup += '</li>';
-								}
-								$.each(element.images, function(i, image){
-									popup += '<li><img src="'+image+'" alt="" /></li>';
-								});
-							popup += '</ul>';
-						popup += '</div>';
-						popup += '<div class="clear"></div>';
-					popup += '</div>';
-				}
-	        });
-			popup += '<div id="down">';
-	        popup += '<p>Projects</p>';
-	        popup += '<ul class="short">';
-	        	$.each(data.projects, function(i, element){
-		        	if (element.name != current){
-						popup += '<li><a class="shortcuts" name="'+element.name+'" href="#">'+element.name+'</a></li>';
-					}
-				});
-			popup += '</ul>';
-			popup += '</div>';
-	        popup += '</div>';
-	    }).done(function() {
-	    	if(windowWidth > 960){
-		    	$.colorbox({
-		    		width: "80%",
-		    		height: "100%",
-		    		scalePhotos: true,
-		    		fixed: true,
-		    		opacity: .8,
-		    		close: "+",
-		    		html:popup,
-		    		onComplete:function(){
-						$('.bxslider')
-						.bxSlider({
-							adaptiveHeight: true,
-							video: true,
-							useCSS: false,
-							onBeforeSlide: function(){
-								jQuery('video').each(function(){
-									this.pause();
-								})
-							}
-						});
-		    		}
-		    	});
-	    	}else{
-	    		$.colorbox({
-		    		width: "100%",
-		    		height: "100%",
-		    		scalePhotos: true,
-		    		fixed: true,
-		    		opacity: .8,
-		    		close: "+",
-		    		html:popup,
-		    		onComplete:function(){
-						$('.bxslider').bxSlider({
-							adaptiveHeight: true,
-							video: true,
-							useCSS: false,
-							onBeforeSlide: function(){
-								jQuery('video').each(function(){
-									this.pause();
-								})
-							}
-						});
-		    		}
-		    	});
-	    	}
-		})
-		.fail(function() {
-			console.log( "error see more project" );
-		})
-		event.preventDefault();
-	});
-
-	$(document).on("mouseenter", ".project", function(event){
-		$(this).find('.info').stop().fadeOut(300);
-		$(this).find('.info').fadeIn(300);
-		if(isMobile().any()) $(this).find('.more.first').stop().fadeOut(300);
-	});
-
-	$(document).on("mouseleave", ".project", function(event){
-		$(this).find('.info').stop().fadeIn(300);
-		$(this).find('.info').fadeOut(300);
-		if(isMobile().any()) $(this).find('.more.first').stop().fadeIn(300);
-	});
-
-	var $loading = $('#loadingDiv').hide();
-	$(document)
-	.ajaxStart(function () {
-		$loading.show();
-	})
-	.ajaxStop(function () {
-		$loading.hide();
-		$("#projects").isotope('reLayout');
-	});
+	// $(document).on("click", ".project a.info, .shortcuts", function(event){
+	// 	var current = $(this).attr("name");
+	// 	$.getJSON("projects/projects.json", function(data) {
+	// 		popup = '<div id="projectDetails">';
+	//         $.each(data.projects, function(i, element){
+	//         	if( element.name == current){
+	//         		popup += '<div id="up">';
+	// 		        	popup += '<h2>'+element.name+'</h2>';
+	// 					popup += '<div class="right">';
+	// 						popup += '<p class="desc">'+element.desc+'</p>';
+	// 						if(element.online){
+	// 							popup += '<a class="online" target="_blank" href="'+element.online+'">See Online</a>';
+	// 						}
+	// 						popup += '<ul class="tags">';
+	// 						$.each(element.tags, function(i, tag){
+	// 							popup += '<li class="tag">'+tag+'</li>';
+	// 						});
+	// 						popup += '</ul>';
+	// 					popup += '</div>';
+	// 					popup += '<div class="left">';
+	// 						popup += '<ul class="bxslider">';
+	// 				        	if(element.video){
+	// 				        		popup += '<li>';
+	// 								popup += '<iframe src="'+element.video+'" width="500" height="281" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>';
+	// 								popup += '</li>';
+	// 							}
+	// 							$.each(element.images, function(i, image){
+	// 								popup += '<li><img src="'+image+'" alt="" /></li>';
+	// 							});
+	// 						popup += '</ul>';
+	// 					popup += '</div>';
+	// 					popup += '<div class="clear"></div>';
+	// 				popup += '</div>';
+	// 			}
+	//         });
+	// 		popup += '<div id="down">';
+	//         popup += '<p>Projects</p>';
+	//         popup += '<ul class="short">';
+	//         	$.each(data.projects, function(i, element){
+	// 	        	if (element.name != current){
+	// 					popup += '<li><a class="shortcuts" name="'+element.name+'" href="#">'+element.name+'</a></li>';
+	// 				}
+	// 			});
+	// 		popup += '</ul>';
+	// 		popup += '</div>';
+	//         popup += '</div>';
+	//     }).done(function() {
+	//     	if(windowWidth > 960){
+	// 	    	$.colorbox({
+	// 	    		width: "80%",
+	// 	    		height: "100%",
+	// 	    		scalePhotos: true,
+	// 	    		fixed: true,
+	// 	    		opacity: .8,
+	// 	    		close: "+",
+	// 	    		html:popup,
+	// 	    		onComplete:function(){
+	// 					$('.bxslider')
+	// 					.bxSlider({
+	// 						adaptiveHeight: true,
+	// 						video: true,
+	// 						useCSS: false,
+	// 						onBeforeSlide: function(){
+	// 							jQuery('video').each(function(){
+	// 								this.pause();
+	// 							})
+	// 						}
+	// 					});
+	// 	    		}
+	// 	    	});
+	//     	}else{
+	//     		$.colorbox({
+	// 	    		width: "100%",
+	// 	    		height: "100%",
+	// 	    		scalePhotos: true,
+	// 	    		fixed: true,
+	// 	    		opacity: .8,
+	// 	    		close: "+",
+	// 	    		html:popup,
+	// 	    		onComplete:function(){
+	// 					$('.bxslider').bxSlider({
+	// 						adaptiveHeight: true,
+	// 						video: true,
+	// 						useCSS: false,
+	// 						onBeforeSlide: function(){
+	// 							jQuery('video').each(function(){
+	// 								this.pause();
+	// 							})
+	// 						}
+	// 					});
+	// 	    		}
+	// 	    	});
+	//     	}
+	// 	})
+	// 	.fail(function() {
+	// 		console.log( "error see more project" );
+	// 	})
+	// 	event.preventDefault();
+	// });
 
 	/* Fit text */
 	$("#name").fitText(1.2);
@@ -335,7 +425,7 @@ $(document).ready(function() {
 	// $("#designer").fitText(0.58);
 	// $("#developer").fitText(0.78);
 
-	$("#what-can-i-do").fitText(.81);
+	$("#what-can-i-do").fitText(.84);
 	$("#for-you").fitText(.47);
 	$("#now").fitText(.45);
 
@@ -346,4 +436,6 @@ $(document).ready(function() {
 	$("#like").fitText(1);
 
 	$("#see").fitText(1.1);
+	
+	$(".desc").fitText(.9);
 });

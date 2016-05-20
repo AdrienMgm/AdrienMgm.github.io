@@ -19,10 +19,12 @@
 /* ///////////////////////////////// */
 
 html {
+    height: 100%;
     margin: 0;
     padding: 0;
 }
 body {
+    height: 100%;
     margin: 0;
     padding: 0;
     background-color: #34495e;
@@ -57,16 +59,21 @@ a {
 /* ///////////////////////////////// */
 #main {
     width: 100%;
+    height: 100%;
     margin: 0;
     font-family: "RonniaHeavyRegular", Helvetica, Arial, Sans-serif;
     font-weight: inherit;
     color: #ecf0f1;
-    overflow: hidden;
+    /*overflow: hidden;*/
 }
 #content {
     width: 960px;
     margin: 0 auto;
     font-size: 2em;
+}
+.content--project {
+    width: 100% !important;
+    height: 100%;
 }
 #content > section {
     padding-top: 1em;
@@ -93,7 +100,7 @@ a {
 /* ///////////////////////////////// */
 /* /////////// Navigation ////////// */
 /* ///////////////////////////////// */
-nav {
+#main > nav {
     position: fixed;
     -webkit-transform: translateZ(0)
     top: 0;
@@ -102,27 +109,27 @@ nav {
     z-index: 1000;
     text-align: center;
 }
-nav ul {
+#main > nav ul {
     width: 720px;
     margin: 0 auto;
     display: inline-block;
 
 }
-nav ul li {
+#main > nav ul li {
     display: inline-block;
     width: 16%;
 }
-nav ul li a {
+#main > nav ul li a {
     display: block;
     padding: .5em 0;
     color: #333;
     font-size: 1.4em;
     text-decoration: none;
 }
-nav ul li a:hover {
+#main > nav ul li a:hover {
     color: #AAA;
 }
-nav ul .current a {
+#main > nav ul .current a {
     color: #f1c40f;
 }
 
@@ -429,13 +436,20 @@ header #aim > p{
 #filter .tag:hover {
     color: #F2F2F2;
 }
-#work #filter .left {
+#work #filter .show {
+    float: left;
     margin: 0;
     margin-top: .2em;
     margin-right: .5em;
 }
+#work #projects {
+    font-size: 0;
+    margin-top: 15px;
+}
 #work #projects .project {
+    font-size: 32px;
     display: inline-block;
+    position: relative;
 }
 #work #projects .small {
     width: 33.333%;
@@ -458,6 +472,8 @@ header #aim > p{
 #work #projects .project > img {
     display: block;
     width: 100%;
+    transform: scale(1.1);
+    transition: all 8s ease-in-out;
 }
 #work #projects .project .shadow:before {
     -o-box-shadow: inset 0px 0px 4em 0px rgba(0, 0, 0, .8);
@@ -469,22 +485,25 @@ header #aim > p{
     height:100%;
 }
 #work #projects .project .info {
-    display: none;
     position: absolute;
     top: 0;
     left: 0;
-    width: 96%;
-    height: 98%;
-    padding: 1% 2%;
-    background-color: rgba(5, 5, 5, 0.8);
+    width: 100%;
+    height: 100%;
     z-index: 10;
 }
+#work #projects .project .info:hover + img {
+    transform: scale(1);
+}
 #work #projects .project h2 {
-    max-height: 10%;
-    padding: 1%;
+    font-size: 2em;
     margin: 0;
-    font-size: 80%;
+    position: absolute;
     text-align: center;
+    text-shadow: black 3px 2px 5px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 100%;
 }
 #work #projects .project .littleDesc {
     max-height: 40%;
@@ -702,7 +721,7 @@ header #aim > p{
 #contact > div > *:first-child {
     display: block;
 }
-#contact > div img{
+#contact > div img {
     height: 3em;
 }
 
@@ -712,6 +731,99 @@ header #aim > p{
 footer {
     font-size: .5em;
     font-family: "RonniaRegular", Helvetica, Arial, Sans-serif;
+}
+
+/* ////////////////////////////////// */
+/* ///////////// Project //////////// */
+/* ////////////////////////////////// */
+.project{
+    height: 100%;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-position: center;
+    background-size: cover;
+}
+
+.project .exit {
+    cursor: pointer;
+    font-size: 40px;
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    text-shadow: 3px 5px 0px rgba(0,0,0,0.7);
+}
+
+.project h1 {
+    position: relative;
+    text-align: center;
+    top: 20%;
+    text-shadow: 2px 3px #000;
+}
+
+.project .desc {
+    font-size: .7em;
+    font-family: RonniaRegular;
+    position: absolute;
+    line-height: 1.5em;
+    top: 40%;
+    right: 0;
+    left: 0;
+    margin: 0 auto;
+    width: 50%;
+    background-color: rgba(0,0,0,.5);
+    border-radius: 5px;
+    padding: 30px;
+}
+
+.project .desc .tag{
+    margin-top: 20px;
+    font-size: .8em;
+}
+
+.project #fullpage {
+
+}
+
+.project #fullpage > li {
+    height: 99vh;
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+.project #project__video {
+    overflow: hidden;
+}
+
+.project #video__container {
+    background: #000;
+    opacity: .5;
+}
+
+.project #blur-video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: auto;
+    z-index: -1;
+    -webkit-filter: blur(15px);
+    -moz-filter: blur(15px);
+    -o-filter: blur(15px);
+    -ms-filter: blur(15px);
+    filter: blur(15px);
+}
+
+.project #video {
+    width: auto;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
 }
 
 /* ///////////////////////////////// */

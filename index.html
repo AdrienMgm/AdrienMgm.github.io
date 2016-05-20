@@ -28,8 +28,6 @@
         <link rel="stylesheet" type="text/css" href="css/pure-min.css"/>
         <link rel="stylesheet" type="text/css" href="css/normalize.css"/>
         <link rel="stylesheet" type="text/css" href="css/animate-custom.css"/>
-        <link rel="stylesheet" type="text/css" href="css/colorbox.css">
-        <link rel="stylesheet" type="text/css" href="css/jquery.bxslider.css"/>
         <link rel="stylesheet" type="text/css" href="css/main.css"/>
         <link rel="stylesheet" type="text/css" href="css/media-queries.css"/>
 
@@ -162,7 +160,7 @@
                                     <canvas class="skill-lvl"></canvas>
                                 </div>
                                 <ul class="skills-details">
-                                    <li>Make/Makefile/CMake</li>
+                                    <!-- <li>Make/Makefile/CMake</li> -->
                                     <li>GUI</li>
                                     <li>C++11</li>
                                     <li>GPU</li>
@@ -398,11 +396,14 @@
                 </section>
 
                 <section id="work">
-                    <p id="learn" class="big">Learn new things is a pleasure.</p>
-                    <p id="have-a-look" class="left big">Have a look to my</p>
-                    <h2 id="my-work" class="left big"><strong>works</strong></h2>
-                    <div id="filter" class="clear">
-                        <p class="left">Show : </p>
+                    <div class="catch">
+                        <p id="learn" class="big">Learn new things is a pleasure.</p>
+                        <p id="have-a-look" class="left big">Have a look to my</p>
+                        <h2 id="my-work" class="left big"><strong>works</strong></h2>
+                        <div class="clear"></div>
+                    </div>
+                    <!-- <div id="filter" class="clear">
+                        <p class="show">Show : </p>
                         <ul>
                             <li class="tag active" id="all">All</li>
                             <li class="tag" id="website">Web</li>
@@ -410,13 +411,13 @@
                             <li class="tag" id="videogame">Video Games</li>
                             <li class="tag" id="design">Art Design</li>
                         </ul>
-                    </div>
+                    </div> -->
                     <!-- HERE ALL MY PROJECTS LOAD IN AJAX -->
                     <p class="load">
                         <img alt="loading" src="./img/loader.gif" /><br />
                         Loading...
                     </p>
-                    <div id="projects" class="clear">
+                    <div id="projects" class="">
                     </div>
                 </section>
 
@@ -446,7 +447,7 @@
                     <div id="email" class="left">
                         <a href="mailto:adrien.mgm@gmail.com?subject=&amp;cc=&amp;bcc=&amp;body="><i class="flaticon-envelope4"></i></a>
                         <p>Contact me</p>
-                        <address><a href="mailto:adrien.mgm@gmail.com?subject=&amp;cc=&amp;bcc=&amp;body="><script type="text/javascript">document.write(UnCryptMailto('besjfo/nhnAhnbjm/dpn'));</script></a></address>
+                        <!-- <address><a href="mailto:adrien.mgm@gmail.com?subject=&amp;cc=&amp;bcc=&amp;body="><script type="text/javascript">document.write(UnCryptMailto('besjfo/nhnAhnbjm/dpn'));</script></a></address> -->
                     </div>
                     <div id="linkedin" class="left">
                         <a target="_blank" href="http://fr.linkedin.com/in/adrienmgm"><i class="flaticon-linkedin9"></i></a>
@@ -458,7 +459,7 @@
                             <i class="flaticon-finger6"></i>
                         </a>
                         <p>Call me maybe</p>
-                        <p><strong><script type="text/javascript">document.write(UnCryptMailto('17/14/83/23/94'));</script></strong></p>
+                        <!-- <p><strong><script type="text/javascript">document.write(UnCryptMailto('17/14/83/23/94'));</script></strong></p> -->
                     </div>
                     <div id="location" class="left">
                         <a target="_blank" href="https://maps.google.fr/maps?q=Maisons-alfort+france&ie=UTF-8&ei=FxnbUv_jIsLL0QW8pYCACQ&ved=0CAoQ_AUoAg" class="anim-location">
@@ -477,22 +478,12 @@
             </div>
             <a href="#" id="backToTop"><img src="img/backTop.png"><p>TOP</p></a>
         </div>
-
-        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
-        <script>
-        if (!window.jQuery) {
-            document.write('<script src="js/vendor/jquery-2.0.3.min.js"><\/script>');
-        }
-        </script>
         
+        <script type="text/javascript" src="js/vendor/jquery-2.0.3.min.js"></script>
         <script type="text/javascript" src="js/vendor/jquery.fittext.js"></script>
         <script type="text/javascript" src="js/vendor/jquery.scrollTo.js"></script>
         <script type="text/javascript" src="js/vendor/jquery.nav.js"></script>
-        <script type="text/javascript" src="js/vendor/jquery.isotope.min.js"></script>
-        <script type="text/javascript" src="js/vendor/jquery.colorbox.min.js"></script>
-        <script type="text/javascript" src="js/vendor/jquery.dotdotdot.min.js"></script>
-        <script type="text/javascript" src="js/vendor/jquery.fitvids.js"></script>
-        <script type="text/javascript" src="js/vendor/jquery.bxslider.min.js"></script>
+        <script type="text/javascript" src="js/vendor/jquery-ui.min.js"></script>
         <script type="text/javascript" src="js/main.js"></script>
         <!--[if IE 6]></div><![endif]-->
     </body>
