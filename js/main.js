@@ -254,35 +254,35 @@ $(document).ready(function() {
 	///////////////////////
 	/* Load project.json */
 	///////////////////////
-	loadProjects().done(function(projects){
-		home = $("#content").html();
-		////////////////////
-		/* routage system */
-		////////////////////
-		routesHTML5(projects);
-	});
+	// loadProjects().done(function(projects){
+	// 	home = $("#content").html();
+	// 	////////////////////
+	// 	/* routage system */
+	// 	////////////////////
+	// 	routesHTML5(projects);
+	// });
 
 	////////////////
 	/* Navigation */
 	////////////////
-	$('nav ul').onePageNav({
-		currentClass: 'current',
-		filter: ':not(.resume a)',
-	    changeHash: false,
-	    scrollSpeed: 750,
-	    scrollOffset: 50,
-	    scrollThreshold: 0.5,
-	    easing: 'swing',
-	    begin: function() {
-	        //I get fired when the animation is starting
-	    },
-	    end: function() {
-	        //I get fired when the animation is ending
-	    },
-	    scrollChange: function($currentListItem) {
-	        //I get fired when you enter a section and I pass the list item of the section
-	    }
-	});
+	// $('nav ul').onePageNav({
+	// 	currentClass: 'current',
+	// 	filter: ':not(.resume a)',
+	//     changeHash: false,
+	//     scrollSpeed: 750,
+	//     scrollOffset: 50,
+	//     scrollThreshold: 0.5,
+	//     easing: 'swing',
+	//     begin: function() {
+	//         //I get fired when the animation is starting
+	//     },
+	//     end: function() {
+	//         //I get fired when the animation is ending
+	//     },
+	//     scrollChange: function($currentListItem) {
+	//         //I get fired when you enter a section and I pass the list item of the section
+	//     }
+	// });
 
 	/////////////////
 	/* Back to top */
@@ -404,10 +404,9 @@ $(document).ready(function() {
 
 	/* Fit text */
 	$("#name").fitText(1.2);
-	$("#aim").fitText(3);
+	$("#aim").fitText(1.65);
 
-	$("#Iam").fitText(1.25);
-	$("#engineer").fitText(1.29);
+	$("#engineer").fitText(2.29);
 
 	$("#student-at").fitText(1.5);
 	$("#imac > h2").fitText(.3);
@@ -425,13 +424,13 @@ $(document).ready(function() {
 	// $("#designer").fitText(0.58);
 	// $("#developer").fitText(0.78);
 
-	$("#what-can-i-do").fitText(.84);
-	$("#for-you").fitText(.47);
-	$("#now").fitText(.45);
+	// $("#what-can-i-do").fitText(.84);
+	// $("#for-you").fitText(.47);
+	// $("#now").fitText(.45);
 
-	$("#learn").fitText(2);
-	$("#have-a-look").fitText(1.05);
-	$("#my-work").fitText(.4);
+	// $("#learn").fitText(2);
+	// $("#have-a-look").fitText(1.05);
+	// $("#my-work").fitText(.4);
 
 	$("#like").fitText(1);
 

@@ -689,10 +689,9 @@ header #aim > p{
 /* ///////////////////////////////// */
 /* //////////// Contact //////////// */
 /* ///////////////////////////////// */
-#contact {}
-#contact #see {
-    font-size: 3em;
-    margin-bottom: .5em;
+#contact .grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
 }
 #contact div {
     font-size: .8em;
@@ -706,7 +705,6 @@ header #aim > p{
     color: #f2f2f2;
 }
 #contact i {
-    display: inline;
     color: #f1c40f;
     text-align: center;
     font-size: 4em;
@@ -714,15 +712,16 @@ header #aim > p{
     margin-bottom: .4em;
 }
 #contact > div {
-    position: relative;
     margin-bottom: 1em;
-    width: 50%;
-}
-#contact > div > *:first-child {
-    display: block;
 }
 #contact > div img {
     height: 3em;
+}
+#contact #email {
+    grid-column: 2;
+}
+#contact #linkedin {
+    grid-column: 3;
 }
 
 /* ///////////////////////////////// */
